@@ -1,15 +1,15 @@
 {
     "name":"Example Listing",
     "id":"com.vrchat.example-listing",
-    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
+    "url":"https://hoshinolabs-vrchat.github.io/template-package-listing/vpm.json",
     "author":{
-        "email":"developer@vrchat.com",
-        "name":"VRChat",
-        "url":"https://hello.vrchat.com"
+        "email":"magi.ikuko@gmail.com",
+        "name":"ikuko",
+        "url":"https://hoshinolabs.com"
     },
     "description":"Example listing of VRChat packages",
     "infoLink":{
-        "url":"http://github.com/vrchat-community/template-package-listing",
+        "url":"http://github.com/hoshinolabs-vrchat/template-package-listing",
         "text":"View on GitHub"
     },
     "bannerUrl":"banner.png",

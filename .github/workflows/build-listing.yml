@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v3 # check out this repo
       - uses: actions/checkout@v3 # check out automation repo
         with:
-          repository: vrchat-community/package-list-action
+          repository: hoshinolabs-vrchat/package-list-action
           path: ${{env.pathToCi}}
           clean: false # otherwise the local repo will no longer be checked out
           
@@ -47,7 +47,11 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
           
       - name: Build Package Version Listing
-        run: ${{env.pathToCi}}/build.cmd BuildMultiPackageListing --root ${{env.pathToCi}} --list-publish-directory $GITHUB_WORKSPACE/${{env.listPublishDirectory}}
+        run: ${{env.pathToCi}}/build.cmd BuildMultiPackageListing --root ${{env.pathToCi}} --list-publish-directory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --package-listing-source-filename vpm-prerelease.json --package-listing-publish-filename vpm-prerelease.json --include-prerelease true --only-package-listing-publish true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Package Version Listing
+        run: ${{env.pathToCi}}/build.cmd BuildMultiPackageListing --root ${{env.pathToCi}} --list-publish-directory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --package-listing-source-filename vpm.json --package-listing-publish-filename vpm.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
